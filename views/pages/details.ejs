@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>details</h1>
+    </header>
+
+    <main>
+        <section>
+            <div>
+                <p>
+                    <%= item.name %>
+                </p>
+                <img src="<%=item.image_link %>" alt="">
+                <p>
+                    <%= item.price %>
+                </p>
+                <p>
+                    <%= item.description %>
+                </p>
+
+                <form action="./saved.ejs/<%=data.id%>?_method=PUT" method="POST">
+                <input type="text" value="<%=data.name%>" name= "name">
+                <input type="text" value="<%=data.price%>" name= "price">
+                <input type="text" value="<%=data.image_link%>" name= "image_link">
+                <input type="text" value="<%=data.description%>" name= "description">
+                <button type="submit"edit></button>
+                </form>
+
+                <form action="/saved/<%=data.id %>?+method=delete" method="POST"></form>
+                <button>delete</button>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer>
+
+</body>
+</html>

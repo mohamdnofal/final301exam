@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Listing Lipsticks</h1>
+
+        <ul>
+            <li><a href="./saved.ejs"></a></li>
+        </ul>
+    </header>
+
+    <main>
+        <section>
+            <% data.forEach(item=>{%>
+                <div>
+                    <p>
+                        <%= item.name %>
+                    </p>
+                    <img src="<%=item.image_link %>" alt="">
+                    <p>
+                        <%= item.price %>
+                    </p>
+                    <p>
+                        <%= item.description %>
+                    </p>
+
+                    <form action="/saved" method='POST'>
+                        <input type="text" value='<%= item.name %>' name="name">
+                        <input type="text" value='<%= item.image_link %>' name="image_link">
+                        <input type="text" value='<%= item.price %>' name="price">
+                        <input type="text" value='<%= item.description%>' name="description">
+                        <button type="save">save product</button>
+
+                    </form>
+                </div>
+
+                <% })%>
+        </section>
+    </main>
+
+    <footer> </footer>
+</body>
+
+</html>
